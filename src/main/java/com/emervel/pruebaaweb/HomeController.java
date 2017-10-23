@@ -35,6 +35,12 @@ public class HomeController {
 
 		return "home";
 	}
+	
+	@RequestMapping(value = "/nodecorate/nodecorate", method = RequestMethod.GET)
+	public String showNodecorate(Model model) {
+ 
+		return "nodecorate/nodecorate";
+	}
 
 }
 
