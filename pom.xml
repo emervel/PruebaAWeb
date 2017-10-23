@@ -172,7 +172,7 @@
 			<artifactId>sitemesh</artifactId>
 			<version>2.4.2</version>
 		</dependency>
-		<!--cambio <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
+		<!--cambio   <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
 			<version>9.4.1212</version> <scope>runtime</scope> </dependency> <dependency> 
 			<groupId>org.mybatis</groupId> <artifactId>mybatis</artifactId> <version>3.4.5</version> 
 			</dependency> <dependency> <groupId>org.mybatis</groupId> <artifactId>mybatis-spring</artifactId> 
