@@ -1,0 +1,6 @@
+/.sonar/
+/target/
+/.classpath
+/.springBeans
+/sonar-project.properties
+/.settings

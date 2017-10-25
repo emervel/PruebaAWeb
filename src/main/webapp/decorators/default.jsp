@@ -1,53 +1,75 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="dec"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
- 
-<c:set var="url" value="${pageContext.request.contextPath}"></c:set>
- 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- 
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="${url}/resources/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="${url}/resources/css/springmvc.css"/>
-	<!-- jquery must put before js files of bootstrap -->
-	<script src="${url}/resources/js/jquery.min.js"></script>
-	<script src="${url}/resources/js/bootstrap.min.js"></script>	
-	<title>
-		<dec:title default="Web Page" />
-	</title>
-	<dec:head />
+<%@ taglib prefix="decorator"
+	uri="http://www.opensymphony.com/sitemesh/decorator"%>
+
+<meta charset="utf-8">
+
+<title><decorator:title /></title>
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/bootstrap/2.2.2/css/bootstrap.min.css"
+	media="all" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<decorator:head />
+
+<style>
+body {
+	padding-top: 60px;
+	/* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
 </head>
 <body>
-<div class="container bs-docs-container edu">
-    <div id="m_header">            
-    	<%@ include file="header.jsp"%>  
-    </div>        		    
-    <!-- /header -->
-    <div id="m_menu_top">            
-    	<%@ include file="menu-top.jsp"%>  
-    </div>
-    <!-- /top menu -->
-    <div id="m_container">
-    	<!-- if not using sidebar, only add <dec:body /> in here -->
-    	<div id="content">
-	 		<div class="row">
-	 			<div class="col-sm-8">
-	 				<dec:body />
-		   		</div>
-		   		<div class="col-sm-4" style="border-left: 1px solid #fff; min-height: 300px;">
-		   			<%@ include file="sidebar.jsp"%>
-		   		</div>
-	 		</div>	 	   
-		</div>        
-    </div>
-    <!-- /main -->
-    <div id="m_footer">
-		<%@ include file="footer.jsp"%>
-    </div>
-    <!-- /footer -->
-</div>    
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#">Sample Appb</a>
+
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a
+							href="${pageContext.request.contextPath}/">Home</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<c:if test="${page_error != null }">
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<h4>Error!</h4>
+				${page_error}
+			</div>
+		</c:if>
+
+		<decorator:body />
+
+		<div id="m_footer">
+			<%@ include file="footer.jsp"%>
+		</div>
+	</div>
+
+
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/assets/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/assets/bootstrap/2.2.2/js/bootstrap.min.js"></script>
 </body>
 </html>

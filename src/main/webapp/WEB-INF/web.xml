@@ -7,11 +7,15 @@
 	<!-- if have use spring security, must put config sitemesh after Spring security then effect -->
 	<filter>
 		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
 	</filter>
+
+	<!-- Filter Mappings -->
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
 		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	<!-- end sitemesh -->
 	

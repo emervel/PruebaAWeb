@@ -1,3 +1,3 @@
 <div>
-	FOOTER
+	<p>FOOTER2</p>
 </div>
